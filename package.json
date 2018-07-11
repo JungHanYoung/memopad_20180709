@@ -1,0 +1,20 @@
+{
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-stage-3": "^6.24.1",
+		"nodemon": "^1.17.5"
+	},
+	"scripts": {
+		"start": "nodemon --exec babel-node server/index.js"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"express": "^4.16.3",
+		"graphql-yoga": "^1.14.12",
+		"lodash": "^4.17.10",
+		"mysql2": "^1.5.3",
+		"sequelize": "^4.38.0"
+	}
+}

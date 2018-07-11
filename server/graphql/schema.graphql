@@ -1,0 +1,50 @@
+scalar Date
+
+type Error {
+	message: String!
+	path: String!
+}
+
+type Account {
+	id: Int!
+	username: String!
+	password: String!
+	created: Date!
+}
+
+type Memo {
+	id: Int!
+	writer: String!
+	contents: String!
+	starred: [String]
+	is_edited: Boolean!
+}
+
+type Query {
+	# Account API
+	getLoginInfo: Account!
+	# Memo API
+	allMemos: [Memo!]
+	getMemosByUser: [Memo!]
+}
+
+type Mutation {
+	# Account API
+	createUser(username: String!, password: String!): Response!
+	login(username: String!, password: String!): TokenResponse!
+	# Memo API
+	createMemo(contents: String!): Response!
+	deleteMemo(id: Int!): Response!
+	modifyMemo(id: Int!, contents: String!): Response!
+}
+
+type Response {
+	ok: Boolean!
+	error: [Error!]
+}
+
+type TokenResponse {
+	ok: Boolean!
+	token: String
+	error: [Error!]
+}
